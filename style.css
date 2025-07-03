@@ -1,0 +1,249 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f6fa;
+  color: #222;
+}
+
+.main-header {
+  height: 80px;
+  background: #d1c2f6;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+.header-logo-wide {
+  max-height: 64px;
+  width: auto;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2.5rem 2rem;
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+.grid-item {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px rgba(162,89,230,0.07);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 0.7rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cta h1 {
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #222;
+}
+.cta .subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #444;
+}
+.cta-btn {
+  display: inline-block;
+  background: #22b573;
+  color: #fff;
+  font-weight: bold;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, transform 0.2s;
+  text-align: center;
+}
+.cta-btn:hover {
+  background: #1a8c5a;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.features h2 {
+  color: #22b573;
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+.features ul {
+  list-style: disc inside;
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.features li {
+  margin-bottom: 0.7rem;
+  font-size: 1.05rem;
+}
+.testimonial h3 {
+  color: #a259e6;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.testimonial blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #a259e6;
+  margin: 0 0 0.5rem 0;
+}
+.testimonial .author {
+  color: #22b573;
+  font-weight: bold;
+}
+.testimonial .rating {
+  font-size: 1rem;
+  color: #f7c948;
+  font-weight: bold;
+}
+
+.screenshot-img {
+  width: 100%;
+  border-radius: 0.7rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  margin: auto 0;
+}
+
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 1.5rem 0;
+  }
+  .grid-item {
+    padding: 1.2rem 0.7rem;
+  }
+  .main-header {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-header {
+    height: 64px;
+    padding: 0 0.5rem;
+  }
+  .header-logo-wide {
+    max-height: 40px;
+  }
+  .main-grid {
+    padding: 0 0.2rem;
+  }
+  .cta h1 {
+    font-size: 1.2rem;
+  }
+}
+
+.main-footer {
+  background: #d1c2f6;
+  border-top: 1px solid #e0d7f3;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 1rem;
+  color: #444;
+}
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  min-height: 32px;
+}
+.footer-contact, .footer-policy {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.footer-policy a {
+  color: #a259e6;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer-policy a:hover {
+  color: #22b573;
+}
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .footer-contact, .footer-policy {
+    justify-content: flex-start;
+  }
+}
+
+.privacy-main {
+  max-width: 800px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+.privacy-section {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px rgba(162,89,230,0.07);
+  padding: 2.5rem 2rem;
+}
+.privacy-section h1 {
+  color: #22b573;
+  font-size: 2rem;
+  margin-top: 0;
+}
+.privacy-section h2 {
+  color: #a259e6;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+.privacy-section ul {
+  margin-left: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.privacy-section li {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+.privacy-section code {
+  background: #f7f6fa;
+  color: #a259e6;
+  padding: 0.1em 0.4em;
+  border-radius: 0.3em;
+  font-size: 0.98em;
+}
+.privacy-section p {
+  margin-bottom: 1.1rem;
+}
+@media (max-width: 600px) {
+  .privacy-section {
+    padding: 1.2rem 0.5rem;
+  }
+  .privacy-section h1 {
+    font-size: 1.3rem;
+  }
+  .privacy-section h2 {
+    font-size: 1.05rem;
+  }
+} 
