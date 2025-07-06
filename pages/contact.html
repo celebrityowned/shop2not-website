@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Comprehensive Favicon Setup -->
+  <link rel="icon" type="image/png" href="../assets/images/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/128x128_logo.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../assets/images/128x128_logo.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../assets/images/128x128_logo.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../assets/images/128x128_logo.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../assets/images/128x128_logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/images/128x128_logo.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../assets/images/128x128_logo.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../assets/images/128x128_logo.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="../assets/images/128x128_logo.png">
+  <link rel="apple-touch-icon" href="../assets/images/128x128_logo.png">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="../assets/icons/manifest.json">
+  <meta name="theme-color" content="#22b573">
+  <meta name="msapplication-TileColor" content="#22b573">
+  <meta name="msapplication-TileImage" content="../assets/images/128x128_logo.png">
+  
+  <title>Contact Us - Shop2not Support</title>
+  <meta name="description" content="Get in touch with the Shop2not team. We're here to help with your Shopify to Whatnot export needs, technical support, and feature requests.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .contact-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .contact-form {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 2.5rem;
+      box-shadow: 0 2px 16px rgba(162,89,230,0.07);
+    }
+    
+    .contact-form h1 {
+      color: #22b573;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    .contact-form p {
+      color: #666;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #333;
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #22b573;
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .required {
+      color: #e74c3c;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, #22b573 0%, #1a8f5a 100%);
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(34, 181, 115, 0.3);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+    
+    .radio-group {
+      display: flex;
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+    
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .radio-option input[type="radio"] {
+      width: auto;
+      margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-form {
+        padding: 1.5rem;
+      }
+      
+      .radio-group {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Header content will be loaded by JavaScript -->
+  </header>
+
+  <script src="../assets/js/header-loader.js"></script>
+
+  <main class="contact-container">
+    <div class="contact-form">
+      <h1>Contact Us</h1>
+      <p>Have a question about Shop2not? We're here to help with your Shopify to Whatnot export needs.</p>
+      
+      <form action="https://formspree.io/f/myzjapda" method="POST" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="subject">Subject <span class="required">*</span></label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="inquiry-type">Inquiry Type <span class="required">*</span></label>
+            <select id="inquiry-type" name="inquiry-type" required>
+              <option value="">Select an option</option>
+              <option value="General Question">General Question</option>
+              <option value="Technical Support">Technical Support</option>
+              <option value="Feature Request">Feature Request</option>
+              <option value="Partnership Inquiry">Partnership Inquiry</option>
+              <option value="Bug Report">Bug Report</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number (Optional)</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        
+        <div class="form-group">
+          <label>Are you a current Shop2not user? <span class="required">*</span></label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="user-yes" name="current-user" value="Yes" required>
+              <label for="user-yes">Yes</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="user-no" name="current-user" value="No" required>
+              <label for="user-no">No</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message <span class="required">*</span></label>
+          <textarea id="message" name="message" placeholder="Please describe your inquiry in detail..." required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <!-- Footer content will be loaded by JavaScript -->
+  </footer>
+
+  <script src="../assets/js/footer-loader.js"></script>
+
+  <script>
+    // Form validation and submission handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      const requiredFields = this.querySelectorAll('[required]');
+      let isValid = true;
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.style.borderColor = '#e74c3c';
+        } else {
+          field.style.borderColor = '#e0e0e0';
+        }
+      });
+      
+      if (!isValid) {
+        e.preventDefault();
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      // If valid, redirect to thank you page
+      setTimeout(() => {
+        window.location.href = 'contact-thank-you.html';
+      }, 1000);
+    });
+  </script>
+</body>
+</html> 

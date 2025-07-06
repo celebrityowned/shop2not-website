@@ -10,13 +10,22 @@ body {
   background: #d1c2f6;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 0 2rem;
   box-sizing: border-box;
 }
 .header-logo-wide {
   max-height: 64px;
   width: auto;
+}
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  text-align: left;
+  justify-self: start;
+  align-self: center;
 }
 
 .main-grid {
@@ -144,9 +153,15 @@ body {
   .main-header {
     height: 64px;
     padding: 0 0.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
   }
   .header-logo-wide {
     max-height: 40px;
+  }
+  .header-title {
+    font-size: 1.1rem;
   }
   .main-grid {
     padding: 0 0.2rem;
