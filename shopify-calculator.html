@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Plan Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #96BF48;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .calculator {
+            padding: 40px;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+        }
+
+        .input-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .input-group input {
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .calculate-btn {
+            background: #96BF48;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .results {
+            margin-top: 40px;
+            display: none;
+        }
+
+        .results h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .plan-card {
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .plan-card.basic {
+            border-color: #667eea;
+        }
+
+        .plan-card.grow {
+            border-color: #96BF48;
+        }
+
+        .plan-card.advance {
+            border-color: #f093fb;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .plan-card.basic .plan-name {
+            color: #667eea;
+        }
+
+        .plan-card.grow .plan-name {
+            color: #96BF48;
+        }
+
+        .plan-card.advance .plan-name {
+            color: #f093fb;
+        }
+
+        .monthly-cost {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .plan-details {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .recommendation {
+            background: #e8f5e8;
+            color: #2d5a2d;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .best-value {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .breakdown {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .breakdown h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 5px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .breakdown-label {
+            color: #666;
+        }
+
+        .breakdown-value {
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Shopify Plan Calculator</h1>
+            <p>Find the perfect Shopify plan for your business</p>
+        </div>
+
+        <div class="calculator">
+            <div class="input-section">
+                <h2>Enter Your Business Information</h2>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="onlineSales">Estimated Monthly Online Sales ($)</label>
+                        <input type="number" id="onlineSales" placeholder="0" min="0" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="onlineOrders">Estimated Monthly Online Orders</label>
+                        <input type="number" id="onlineOrders" placeholder="0" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="inPersonSales">Estimated Monthly In-Person Sales ($)</label>
+                        <input type="number" id="inPersonSales" placeholder="0" min="0" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="inPersonOrders">Estimated Monthly In-Person Orders</label>
+                        <input type="number" id="inPersonOrders" placeholder="0" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="staffAccounts">Number of Staff Accounts Needed</label>
+                        <input type="number" id="staffAccounts" placeholder="1" min="1">
+                    </div>
+                </div>
+                <button class="calculate-btn" onclick="calculatePlans()">Calculate Plans</button>
+                <div class="error" id="errorMessage"></div>
+            </div>
+
+            <div class="results" id="results">
+                <h2>Monthly Cost Comparison</h2>
+                <div class="plans-grid">
+                    <div class="plan-card basic">
+                        <div class="plan-name">Basic Plan</div>
+                        <div class="plan-details">$39/month • 1 staff account</div>
+                        <div class="monthly-cost" id="basicCost">$39</div>
+                        <div class="plan-details">
+                            Online: 2.9% + $0.30<br>
+                            In-Person: 2.6% + $0.10
+                        </div>
+                        <div class="recommendation" id="basicRecommendation" style="display: none;">
+                            Recommended for your business
+                        </div>
+                    </div>
+
+                    <div class="plan-card grow">
+                        <div class="plan-name">Grow Plan</div>
+                        <div class="plan-details">$105/month • 5 staff accounts</div>
+                        <div class="monthly-cost" id="growCost">$105</div>
+                        <div class="plan-details">
+                            Online: 2.7% + $0.30<br>
+                            In-Person: 2.5% + $0.10
+                        </div>
+                        <div class="recommendation" id="growRecommendation" style="display: none;">
+                            Recommended for your business
+                        </div>
+                    </div>
+
+                    <div class="plan-card advance">
+                        <div class="plan-name">Advance Plan</div>
+                        <div class="plan-details">$399/month • 15 staff accounts</div>
+                        <div class="monthly-cost" id="advanceCost">$399</div>
+                        <div class="plan-details">
+                            Online: 2.5% + $0.30<br>
+                            In-Person: 2.4% + $0.10
+                        </div>
+                        <div class="recommendation" id="advanceRecommendation" style="display: none;">
+                            Recommended for your business
+                        </div>
+                    </div>
+                </div>
+
+                <div class="breakdown" id="breakdown">
+                    <h3>Calculation Breakdown</h3>
+                    <div id="breakdownContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculatePlans() {
+            // Get input values
+            const onlineSales = parseFloat(document.getElementById('onlineSales').value) || 0;
+            const onlineOrders = parseInt(document.getElementById('onlineOrders').value) || 0;
+            const inPersonSales = parseFloat(document.getElementById('inPersonSales').value) || 0;
+            const inPersonOrders = parseInt(document.getElementById('inPersonOrders').value) || 0;
+            const staffAccounts = parseInt(document.getElementById('staffAccounts').value) || 1;
+
+            // Validate inputs
+            const errorMessage = document.getElementById('errorMessage');
+            if (staffAccounts < 1) {
+                errorMessage.textContent = 'You need at least 1 staff account.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            errorMessage.style.display = 'none';
+
+            // Calculate costs for each plan with detailed breakdown
+            const basicBreakdown = calculatePlanCostWithBreakdown(39, 0.029, 0.30, 0.026, 0.10, onlineSales, onlineOrders, inPersonSales, inPersonOrders, staffAccounts, 1, 'Basic');
+            const growBreakdown = calculatePlanCostWithBreakdown(105, 0.027, 0.30, 0.025, 0.10, onlineSales, onlineOrders, inPersonSales, inPersonOrders, staffAccounts, 5, 'Grow');
+            const advanceBreakdown = calculatePlanCostWithBreakdown(399, 0.025, 0.30, 0.024, 0.10, onlineSales, onlineOrders, inPersonSales, inPersonOrders, staffAccounts, 15, 'Advance');
+
+            // Update display
+            if (staffAccounts > 1) {
+                document.getElementById('basicCost').textContent = 'Option Not Available';
+            } else {
+                document.getElementById('basicCost').textContent = `$${basicBreakdown.totalCost.toFixed(2)}`;
+            }
+            document.getElementById('growCost').textContent = `$${growBreakdown.totalCost.toFixed(2)}`;
+            document.getElementById('advanceCost').textContent = `$${advanceBreakdown.totalCost.toFixed(2)}`;
+
+            // Find best plan
+            const costs = [
+                { name: 'basic', cost: basicBreakdown.totalCost, staffLimit: 1 },
+                { name: 'grow', cost: growBreakdown.totalCost, staffLimit: 5 },
+                { name: 'advance', cost: advanceBreakdown.totalCost, staffLimit: 15 }
+            ];
+
+            // Filter plans that meet staff requirements
+            const validPlans = costs.filter(plan => plan.staffLimit >= staffAccounts);
+            
+            if (validPlans.length === 0) {
+                errorMessage.textContent = 'No plan supports the number of staff accounts you need.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            // Find the cheapest valid plan
+            const bestPlan = validPlans.reduce((min, plan) => plan.cost < min.cost ? plan : min);
+
+            // Show recommendations
+            document.getElementById('basicRecommendation').style.display = 'none';
+            document.getElementById('growRecommendation').style.display = 'none';
+            document.getElementById('advanceRecommendation').style.display = 'none';
+
+            if (bestPlan.name === 'basic') {
+                document.getElementById('basicRecommendation').style.display = 'block';
+            } else if (bestPlan.name === 'grow') {
+                document.getElementById('growRecommendation').style.display = 'block';
+            } else if (bestPlan.name === 'advance') {
+                document.getElementById('advanceRecommendation').style.display = 'block';
+            }
+
+            // Show breakdown
+            showBreakdown(basicBreakdown, growBreakdown, advanceBreakdown);
+
+            // Show results
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function calculatePlanCostWithBreakdown(monthlyFee, onlineRate, onlineFixed, inPersonRate, inPersonFixed, onlineSales, onlineOrders, inPersonSales, inPersonOrders, staffNeeded, staffLimit, planName) {
+            // Check if plan supports required staff
+            if (staffNeeded > staffLimit) {
+                return {
+                    planName: planName,
+                    totalCost: Infinity,
+                    monthlyFee: monthlyFee,
+                    onlineFees: 0,
+                    inPersonFees: 0,
+                    onlineSales: onlineSales,
+                    onlineOrders: onlineOrders,
+                    inPersonSales: inPersonSales,
+                    inPersonOrders: inPersonOrders,
+                    onlineRate: onlineRate,
+                    onlineFixed: onlineFixed,
+                    inPersonRate: inPersonRate,
+                    inPersonFixed: inPersonFixed,
+                    staffSupported: false
+                };
+            }
+
+            // Calculate transaction fees
+            const onlineFees = (onlineSales * onlineRate) + (onlineOrders * onlineFixed);
+            const inPersonFees = (inPersonSales * inPersonRate) + (inPersonOrders * inPersonFixed);
+            
+            // Total monthly cost
+            const totalCost = monthlyFee + onlineFees + inPersonFees;
+
+            return {
+                planName: planName,
+                totalCost: totalCost,
+                monthlyFee: monthlyFee,
+                onlineFees: onlineFees,
+                inPersonFees: inPersonFees,
+                onlineSales: onlineSales,
+                onlineOrders: onlineOrders,
+                inPersonSales: inPersonSales,
+                inPersonOrders: inPersonOrders,
+                onlineRate: onlineRate,
+                onlineFixed: onlineFixed,
+                inPersonRate: inPersonRate,
+                inPersonFixed: inPersonFixed,
+                staffSupported: true
+            };
+        }
+
+        function showBreakdown(basicBreakdown, growBreakdown, advanceBreakdown) {
+            const breakdownContent = document.getElementById('breakdownContent');
+            let html = '';
+
+            [basicBreakdown, growBreakdown, advanceBreakdown].forEach(breakdown => {
+                if (breakdown.staffSupported) {
+                    html += `<div style="margin-bottom: 30px; padding: 15px; border: 1px solid #e9ecef; border-radius: 8px; background: white;">
+                        <h4 style="color: #333; margin-bottom: 15px; font-size: 1.1rem;">${breakdown.planName} Plan Breakdown</h4>
+                        
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Monthly Plan Fee:</span>
+                            <span class="breakdown-value">$${breakdown.monthlyFee.toFixed(2)}</span>
+                        </div>
+                        
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Online Transaction Fees:</span>
+                            <span class="breakdown-value">$${breakdown.onlineFees.toFixed(2)}</span>
+                        </div>
+                        <div style="font-size: 0.85rem; color: #666; margin-left: 15px; margin-bottom: 10px;">
+                            (${breakdown.onlineSales.toFixed(2)} × ${(breakdown.onlineRate * 100).toFixed(1)}% = $${(breakdown.onlineSales * breakdown.onlineRate).toFixed(2)}) + 
+                            (${breakdown.onlineOrders} orders × $${breakdown.onlineFixed.toFixed(2)} = $${(breakdown.onlineOrders * breakdown.onlineFixed).toFixed(2)})
+                        </div>
+                        
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">In-Person Transaction Fees:</span>
+                            <span class="breakdown-value">$${breakdown.inPersonFees.toFixed(2)}</span>
+                        </div>
+                        <div style="font-size: 0.85rem; color: #666; margin-left: 15px; margin-bottom: 10px;">
+                            (${breakdown.inPersonSales.toFixed(2)} × ${(breakdown.inPersonRate * 100).toFixed(1)}% = $${(breakdown.inPersonSales * breakdown.inPersonRate).toFixed(2)}) + 
+                            (${breakdown.inPersonOrders} orders × $${breakdown.inPersonFixed.toFixed(2)} = $${(breakdown.inPersonOrders * breakdown.inPersonFixed).toFixed(2)})
+                        </div>
+                        
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Total Monthly Cost:</span>
+                            <span class="breakdown-value">$${breakdown.totalCost.toFixed(2)}</span>
+                        </div>
+                    </div>`;
+                } else {
+                    html += `<div style="margin-bottom: 30px; padding: 15px; border: 1px solid #e9ecef; border-radius: 8px; background: white;">
+                        <h4 style="color: #333; margin-bottom: 15px; font-size: 1.1rem;">${breakdown.planName} Plan</h4>
+                        <div style="color: #dc3545; font-weight: 500;">Not available - Requires ${breakdown.staffLimit} staff accounts or fewer</div>
+                    </div>`;
+                }
+            });
+
+            breakdownContent.innerHTML = html;
+            document.getElementById('breakdown').style.display = 'block';
+        }
+
+        // Add event listeners for Enter key
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        calculatePlans();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
