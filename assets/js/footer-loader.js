@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             link.href = '../../pages/privacy.html';
                         } else if (link.href.includes('pages/contact.html')) {
                             link.href = '../../pages/contact.html';
+                        } else if (link.href.includes('pages/sitemap.html')) {
+                            link.href = '../../pages/sitemap.html';
                         } else if (link.href.includes('pages/trademark-disclaimer.html')) {
                             link.href = '../../pages/trademark-disclaimer.html';
                         } else if (link.href.includes('categories/index.html')) {
@@ -46,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             link.href = 'privacy.html';
                         } else if (link.href.includes('pages/contact.html')) {
                             link.href = 'contact.html';
+                        } else if (link.href.includes('pages/sitemap.html')) {
+                            link.href = 'sitemap.html';
                         } else if (link.href.includes('pages/trademark-disclaimer.html')) {
                             link.href = 'trademark-disclaimer.html';
                         } else if (link.href.includes('categories/index.html')) {

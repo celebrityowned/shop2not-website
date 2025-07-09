@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopify Plan Calculator</title>
+    
+    <!-- Comprehensive Favicon Setup -->
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/128x128_logo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/128x128_logo.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/128x128_logo.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/128x128_logo.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/128x128_logo.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/128x128_logo.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/128x128_logo.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/128x128_logo.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/128x128_logo.png">
+    <link rel="apple-touch-icon" href="assets/images/128x128_logo.png">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="assets/icons/manifest.json">
+    <meta name="theme-color" content="#22b573">
+    <meta name="msapplication-TileColor" content="#22b573">
+    <meta name="msapplication-TileImage" content="assets/images/128x128_logo.png">
+    
+    <title>Shopify Plan Calculator - Find Your Perfect Shopify Plan | Shop2not</title>
+    <meta name="description" content="Calculate which Shopify plan is best for your business. Compare Basic, Grow, and Advance plans with transaction fees and staff accounts.">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         * {
             margin: 0;
@@ -13,14 +37,15 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: white;
+            background: #f7f6fa;
             min-height: 100vh;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 2.5rem auto;
             background: white;
             border-radius: 15px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -245,6 +270,12 @@
     </style>
 </head>
 <body>
+    <header>
+        <!-- Header content will be loaded by JavaScript -->
+    </header>
+
+    <script src="assets/js/header-loader.js"></script>
+    
     <div class="container">
         <div class="header">
             <h1>Shopify Plan Calculator</h1>
@@ -330,6 +361,12 @@
             </div>
         </div>
     </div>
+    
+    <footer class="main-footer">
+        <!-- Footer content will be loaded by JavaScript -->
+    </footer>
+
+    <script src="assets/js/footer-loader.js"></script>
 
     <script>
         function calculatePlans() {
