@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://shop2not.com/</loc></url>
+  <!-- Root HTML files -->
   <url><loc>https://shop2not.com/googleddda0a624c2382aa.html</loc></url>
   <url><loc>https://shop2not.com/index.html</loc></url>
   <url><loc>https://shop2not.com/shopify-calculator.html</loc></url>
@@ -12,38 +12,44 @@
   <url><loc>https://shop2not.com/pages/sitemap.html</loc></url>
   <url><loc>https://shop2not.com/pages/trademark-disclaimer.html</loc></url>
 
-  <!-- Components (if meant for navigation) -->
-  <!-- <url><loc>https://shop2not.com/components/footer.html</loc></url> -->
-  <!-- <url><loc>https://shop2not.com/components/header.html</loc></url> -->
-
-  <!-- Categories -->
+  <!-- Categories (alphabetized, excluding index.html) -->
   <url><loc>https://shop2not.com/categories/air-jordans.html</loc></url>
   <url><loc>https://shop2not.com/categories/anime-collectibles.html</loc></url>
+  <url><loc>https://shop2not.com/categories/balenciaga.html</loc></url>
   <url><loc>https://shop2not.com/categories/beauty-cosmetics.html</loc></url>
+  <url><loc>https://shop2not.com/categories/celine.html</loc></url>
   <url><loc>https://shop2not.com/categories/collectible-toys.html</loc></url>
   <url><loc>https://shop2not.com/categories/designer-handbags.html</loc></url>
   <url><loc>https://shop2not.com/categories/designer-sneakers.html</loc></url>
   <url><loc>https://shop2not.com/categories/disneyana.html</loc></url>
+  <url><loc>https://shop2not.com/categories/dior.html</loc></url>
+  <url><loc>https://shop2not.com/categories/fendi.html</loc></url>
   <url><loc>https://shop2not.com/categories/funko-pop-collectibles.html</loc></url>
   <url><loc>https://shop2not.com/categories/funko-pop-exclusives.html</loc></url>
+  <url><loc>https://shop2not.com/categories/gucci.html</loc></url>
   <url><loc>https://shop2not.com/categories/handbags.html</loc></url>
+  <url><loc>https://shop2not.com/categories/hermes.html</loc></url>
   <url><loc>https://shop2not.com/categories/high-end-jewelry.html</loc></url>
   <url><loc>https://shop2not.com/categories/hypebeast-accessories.html</loc></url>
   <url><loc>https://shop2not.com/categories/jewelry.html</loc></url>
   <url><loc>https://shop2not.com/categories/kpop-merchandise.html</loc></url>
   <url><loc>https://shop2not.com/categories/lego-collectibles.html</loc></url>
   <url><loc>https://shop2not.com/categories/limited-edition-sneakers.html</loc></url>
+  <url><loc>https://shop2not.com/categories/louis-vuitton.html</loc></url>
   <url><loc>https://shop2not.com/categories/luxury-watches.html</loc></url>
   <url><loc>https://shop2not.com/categories/mtg-cards.html</loc></url>
   <url><loc>https://shop2not.com/categories/pokemon-cards.html</loc></url>
+  <url><loc>https://shop2not.com/categories/prada.html</loc></url>
   <url><loc>https://shop2not.com/categories/rare-sneaker-drops.html</loc></url>
   <url><loc>https://shop2not.com/categories/retro-apparel.html</loc></url>
+  <url><loc>https://shop2not.com/categories/saint-laurent.html</loc></url>
   <url><loc>https://shop2not.com/categories/sneaker-care.html</loc></url>
   <url><loc>https://shop2not.com/categories/sports-memorabilia.html</loc></url>
   <url><loc>https://shop2not.com/categories/streetwear-accessories.html</loc></url>
   <url><loc>https://shop2not.com/categories/streetwear.html</loc></url>
   <url><loc>https://shop2not.com/categories/supreme-apparel.html</loc></url>
   <url><loc>https://shop2not.com/categories/trading-cards.html</loc></url>
+  <url><loc>https://shop2not.com/categories/versace.html</loc></url>
   <url><loc>https://shop2not.com/categories/vintage-electronics.html</loc></url>
   <url><loc>https://shop2not.com/categories/vintage-sports-cards.html</loc></url>
   <url><loc>https://shop2not.com/categories/vintage-video-games.html</loc></url>
